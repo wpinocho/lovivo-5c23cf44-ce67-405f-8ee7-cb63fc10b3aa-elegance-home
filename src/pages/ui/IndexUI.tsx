@@ -35,24 +35,53 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
       showCart={true}
     >
       {/* Hero Section */}
-      <section className="bg-background py-12 border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Discover Our Products
+      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(/hero.jpg)',
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+        </div>
+        
+        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-6xl font-light tracking-tight text-foreground mb-6">
+            Elegancia Natural
+            <span className="block text-4xl md:text-5xl mt-2 font-extralight text-muted-foreground">para tu Hogar</span>
           </h1>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Find the best products at the best price. Guaranteed quality and fast shipping.
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-light">
+            Textiles premium y decoración artesanal que transforman espacios en experiencias
           </p>
+          <div className="flex gap-4 justify-center">
+            <a 
+              href="#collections"
+              className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full transition-all font-medium"
+            >
+              Explorar Colecciones
+            </a>
+            <a 
+              href="#products"
+              className="inline-flex items-center justify-center px-8 py-3 border border-border bg-background/50 backdrop-blur-sm hover:bg-secondary rounded-full transition-all font-medium"
+            >
+              Ver Productos
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Collections Section */}
       {!loadingCollections && collections.length > 0 && (
-        <section id="collections" className="py-12 bg-muted/30">
+        <section id="collections" className="py-16 bg-muted/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-foreground mb-8">
-              Our Collections
-            </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-light text-foreground mb-4">
+                Nuestras Colecciones
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Espacios cuidadosamente seleccionados para cada rincón de tu hogar
+              </p>
+            </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {collections.map((collection) => (
@@ -68,21 +97,27 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
       )}
 
       {/* Products Section */}
-      <section id="products" className="py-12">
+      <section id="products" className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-foreground">
-              {selectedCollectionId 
-                ? `Products from ${collections.find(c => c.id === selectedCollectionId)?.name || 'Collection'}` 
-                : 'Featured Products'
-              }
-            </h2>
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="text-4xl font-light text-foreground mb-2">
+                {selectedCollectionId 
+                  ? collections.find(c => c.id === selectedCollectionId)?.name || 'Productos' 
+                  : 'Productos Destacados'
+                }
+              </h2>
+              <p className="text-muted-foreground">
+                {selectedCollectionId ? 'Explora la colección completa' : 'Lo mejor de nuestra selección'}
+              </p>
+            </div>
             {selectedCollectionId && (
               <Button 
                 variant="outline" 
                 onClick={handleShowAllProducts}
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
               >
-                See All Products
+                Ver Todos los Productos
               </Button>
             )}
           </div>
@@ -102,7 +137,7 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
           ) : (
             <div className="text-center py-12">
               <p className="text-muted-foreground">
-                No products available.
+                No hay productos disponibles.
               </p>
             </div>
           )}
