@@ -126,7 +126,7 @@ export const EcommerceTemplate = ({
               />
             </div>
             <p className="text-primary-foreground/70">
-              Textiles premium para tu hogar
+              Aromas exclusivos que dejan huella
             </p>
           </div>
 

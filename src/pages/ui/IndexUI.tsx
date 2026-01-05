@@ -47,11 +47,11 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
         
         <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-light tracking-tight text-foreground mb-6">
-            Elegancia Natural
-            <span className="block text-4xl md:text-5xl mt-2 font-extralight text-muted-foreground">para tu Hogar</span>
+            Tu Firma Olfativa
+            <span className="block text-4xl md:text-5xl mt-2 font-extralight text-muted-foreground">Deja Huella en Cada Espacio</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-light">
-            Textiles premium y decoración artesanal que transforman espacios en experiencias
+            Aromas exclusivos diseñados para crear experiencias sensoriales inolvidables
           </p>
           <div className="flex gap-4 justify-center">
             <a 
@@ -79,7 +79,7 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
                 Nuestras Colecciones
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Espacios cuidadosamente seleccionados para cada rincón de tu hogar
+                Fragancias cuidadosamente seleccionadas para cada momento y ambiente
               </p>
             </div>
             
